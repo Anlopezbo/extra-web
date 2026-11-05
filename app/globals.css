@@ -1,26 +1,195 @@
 @import "tailwindcss";
 
 :root {
+  /* =========================================================
+     EXTRA DE COLOMBIA — BRAND
+     ========================================================= */
+
+  --extra-blue: #16458a;
+  --extra-blue-dark: #0d2f63;
+  --extra-blue-deep: #09254d;
+  --extra-blue-light: #eaf1fb;
+
+  --extra-red: #d71920;
+  --extra-red-dark: #b51218;
+  --extra-red-light: #fdebed;
+
+  --extra-yellow: #f6c400;
+  --extra-yellow-light: #fff8d8;
+
+  /* =========================================================
+     NEUTRALS
+     ========================================================= */
+
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #172033;
+
+  --surface: #f8fafc;
+  --surface-elevated: #ffffff;
+
+  --muted: #667085;
+  --muted-light: #98a2b3;
+
+  --border: #e4e7ec;
+  --border-light: #eef0f3;
+
+  /* =========================================================
+     STATES
+     ========================================================= */
+
+  --success: #15803d;
+  --success-light: #ecfdf3;
+
+  --warning: #b45309;
+  --warning-light: #fffaeb;
+
+  --error: #dc2626;
+  --error-light: #fef3f2;
+
+  --info: #2563eb;
+  --info-light: #eff6ff;
+
+  /* =========================================================
+     DESIGN TOKENS
+     ========================================================= */
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 0.875rem;
+  --radius-xl: 1.25rem;
+
+  --shadow-sm:
+    0 1px 2px rgba(16, 24, 40, 0.04);
+
+  --shadow-md:
+    0 4px 12px rgba(16, 24, 40, 0.08);
+
+  --shadow-lg:
+    0 12px 32px rgba(16, 24, 40, 0.12);
+
+  --container-width: 1280px;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --color-extra-blue: var(--extra-blue);
+  --color-extra-blue-dark: var(--extra-blue-dark);
+  --color-extra-blue-deep: var(--extra-blue-deep);
+  --color-extra-blue-light: var(--extra-blue-light);
+
+  --color-extra-red: var(--extra-red);
+  --color-extra-red-dark: var(--extra-red-dark);
+  --color-extra-red-light: var(--extra-red-light);
+
+  --color-extra-yellow: var(--extra-yellow);
+  --color-extra-yellow-light: var(--extra-yellow-light);
+
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+
+  --color-muted: var(--muted);
+  --color-muted-light: var(--muted-light);
+
+  --color-border: var(--border);
+  --color-border-light: var(--border-light);
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-info: var(--info);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* =========================================================
+   GLOBAL CONTAINER
+   ========================================================= */
+
+.site-container {
+  width: min(
+    calc(100% - 3rem),
+    var(--container-width)
+  );
+
+  margin-inline: auto;
+}
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+:focus-visible {
+  outline: 3px solid rgba(246, 196, 0, 0.75);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+::selection {
+  background: var(--extra-blue);
+  color: white;
+}
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c8ced8;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #aeb6c3;
+}
+
+/* =========================================================
+   RESPONSIVE CONTAINER
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .site-container {
+    width: min(
+      calc(100% - 2rem),
+      var(--container-width)
+    );
+  }
 }
